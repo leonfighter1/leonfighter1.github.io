@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JoyPainting · 快乐涂鸦</title>
+  <script>
+    // GitHub Pages matches project paths letter for letter, so
+    // /jingyaopaint/ would not find /JingyaoPaint/. Every path GitHub can't
+    // find lands on this page, which sends any spelling of an app's name
+    // (any capitals, the new name too) to its real address.
+    (function () {
+      var apps = {
+        '/jingyaopaint': '/JingyaoPaint',
+        '/joypainting': '/JingyaoPaint'
+      };
+      var path = location.pathname;
+      var lower = path.toLowerCase();
+      for (var key in apps) {
+        if (lower === key || lower.indexOf(key + '/') === 0) {
+          location.replace(apps[key] + (path.slice(key.length) || '/') +
+              location.search + location.hash);
+          return;
+        }
+      }
+    })();
+  </script>
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; background: #FFF0F5; color: #6B2D5C;
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    a { color: #C2185B; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <p>Page not found · 没有找到这个页面 —
+    <a href="/JingyaoPaint/">JoyPainting · 快乐涂鸦</a></p>
+</body>
+</html>
